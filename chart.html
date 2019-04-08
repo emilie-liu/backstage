@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+	<!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+            </div>
+            <img class="logo-img" src="./assets/img/logo.png" alt="">
+            <ul class="nav navbar-top-links navbar-right">
+                <span>今日预约医生人数：</span><span class="font-color">1000人</span><span>今日产品预约人数：</span><span class="font-color">1000人</span>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a href="index.html"><i class="fa fa-dashboard"></i>医生管理</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ui-elements.html">医生预约管理</a>
+                            </li>
+                            <li>
+                                <a href="product-reser.html">产品预约管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="chart.html"><i class="fa fa-bar-chart-o"></i>产品信息</a>
+                    </li>
+                    <li>
+                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i>联系我们</a>
+                    </li>
+                    <li>
+                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
+                    </li>
+                    <li>
+                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
+                    </li>
+                    <li>
+                        <a href="empty.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" >
+            <h3>产品信息</h3>
+            <div class="content">
+                <form class="content submit-form" action="" method="get">
+                    <div><div class="title">产品分类</div>
+                        <select class="product-class" name="select" id="select">
+                            <option value="select"></option>
+                            <option value="">DNA</option>
+                            <option value="">医美</option>
+                        </select>
+                        <span class="font-color">添加分类（点击添加分类才显示添加分类，默认隐藏）</span>
+                    </div>
+                    <div><span class="title">分类名称</span><input type="text"></div>
+                    <button class="btn">保存</button>
+                    <div><div class="title">产品广告图<div class="comment">(建议750*350px)</div></div><input type="file"></div>
+                    <div><div class="title">产品名称</div><input type="text"></div>
+                    <div class="textarea-div"><div class="title">简介</div><textarea name="" id="introduction" cols="30" rows="6"></textarea></div>
+                    <div class="textarea-div"><div class="title">预约须知</div><textarea name="" id="specialty" cols="30" rows="6"></textarea></div>
+                    <div class="textarea-div"><div class="title">产品详情</div></div>
+                    <div class="textarea-div"><div class="title">备注</div><textarea name="" id="remarks" cols="30" rows="6"></textarea></div>
+                    <button class="btn">提交</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- Morris Chart Js -->
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+      <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+    
+   
+</body>
+</html>
