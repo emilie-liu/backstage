@@ -12,6 +12,29 @@
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+    <link href="assets/js/dist/summernote.css" rel="stylesheet"/>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+    <script src="assets/js/dist/summernote.js"></script>
+    <script src="assets/js/dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
+
+    <style>
+        .m {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script type="javascript">
+        $(function(){
+            $('.summernote').summernote({
+                height: 200,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+        });
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -90,19 +113,24 @@
             <div><div class="title">问题</div><input type="text"></div>
             <div><span class="title">回复内容</span><input type="text"></div>
             <button class="btn">提交</button>
-            <div class="textarea-div"><div class="title">导诊指引</div></div>
+            <div class="textarea-div"><div class="title">导诊指引</div> </div>
             <button class="btn">提交</button>
         </form>
+        <div class="m">
+            <div class="summernote">summernote 1</div>
+            <div class="summernote">summernote 2</div>
+        </div>
     </div>
 </div>
 <!-- JS Scripts-->
 <!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
+<!--<script src="assets/js/jquery-1.10.2.js"></script>
+&lt;!&ndash; Bootstrap Js &ndash;&gt;
+<script src="assets/js/bootstrap.min.js"></script>-->
 <!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Custom Js -->
-<script src="assets/js/custom-scripts.js"></script>
+<!--<script src="assets/js/jquery.metisMenu.js"></script>
+&lt;!&ndash; Custom Js &ndash;&gt;
+<script src="assets/js/custom-scripts.js"></script>-->
+
 </body>
 </html>
