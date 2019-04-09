@@ -432,7 +432,7 @@ footer p {
 
 .top-navbar .navbar-brand {
     color: #fff;
-    width: 240px;
+    width: 246px;
     text-align: left;
     height: 60px;
     font-size: 24px;
@@ -867,22 +867,37 @@ input[type="file"] {
     width: 80%;
     line-height: 30px;
 }
-.status-confirm{
+
+.status-confirm {
     background-color: #40BACD;
 }
-.status-confirmed{
+
+.status-confirmed {
     background-color: #F2B345;
 }
-.contact-content td:nth-child(4){
+
+.contact-content td:nth-child(4) {
     width: 30%;
 }
 
 .medical-content td:nth-child(2),
-.medical-content td:nth-child(3){
+.medical-content td:nth-child(3) {
     width: 49%;
     padding: 0 0.5%;
 }
 
+.product-content td:nth-child(2),
+.product-content td:nth-child(3) {
+    width: 11.6%;
+}
+
+.product-content td:nth-child(9) {
+    width: 6%;
+}
+
+.product-content td:last-child {
+    width: 10%;
+}
 
 /*----------------------------------------------
     MEDIA QUERIES     

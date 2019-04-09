@@ -81,67 +81,28 @@
         </div>
     </nav>
     <div id="page-wrapper" >
-        <h3>产品预约管理</h3>
-        <div class="product-content content">
-            <div class="condition">
-                <select class="select" name="area" id="area">
-                    <option value="">请选择产品名称</option>
-                    <option value="">体检</option>
-                    <option value="">医美</option>
-                    <option value="">DNA</option>
-                </select>
-                <select class="select" name="specialist" id="specialist">
-                    <option value="">请选择就诊人</option>
-                    <option value="">某某某</option>
-                    <option value="">李先生</option>
-                </select>
-                <input class="select" type="date" placeholder="请选择就诊时间">
-                <input class="select" type="text" placeholder="请选择就诊时间段">
-                <button class="btn">搜索</button>
-            </div>
-            <table>
-                <tr>
-                    <th><input type="hidden" /></th>
-                    <th>套餐名称</th>
-                    <th>所属医院</th>
-                    <th>就诊人姓名</th>
-                    <th>就诊人手机号码</th>
-                    <th>性别</th>
-                    <th>金额</th>
-                    <th>证件号码</th>
-                    <th>诊所联系电话</th>
-                    <th>急诊时间</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" id="doctor" name="doctor"><label for="doctor"></label></td>
-                    <td>五合一混合疫苗</td>
-                    <td>香港卓健医疗体检中心(旺角店)</td>
-                    <td>某某某</td>
-                    <td>15719502236</td>
-                    <td>女</td>
-                    <td>12870.00</td>
-                    <td>441771199506098956</td>
-                    <td>020-88888888</td>
-                    <td>2019-01-29 9:00～12:00</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" id="doctor1" name="doctor"><label for="doctor1"></label></td>
-                    <td>凯柏硕士计划儿童疫苗A套餐</td>
-                    <td>香港卓健医疗体检中心</td>
-                    <td>某某某</td>
-                    <td>15719502236</td>
-                    <td>女</td>
-                    <td>12870.00</td>
-                    <td>441771199506098956</td>
-                    <td>020-88888888</td>
-                    <td>2019-01-29 9:00～12:00</td>
-                </tr>
-            </table>
-            <button class="btn edit" onclick="window.location.href='product-reser-edit.html'">编辑</button>
-            <button class="btn del">删除</button>
-        </div>
+        <h3>医生预约编辑</h3>
+        <form class="content submit-form" action="" method="get">
+            <div><h4>医生信息</h4></div>
+            <div><div class="title">医生头像</div><input type="file"></div>
+            <div><div class="title">医生姓名</div><input type="text"></div>
+            <div><span class="title">所属医院诊所</span><input type="text"></div>
+            <div><span class="title">联系电话</span><input type="text"></div>
+            <div><div class="title">地址</div><input class="address" type="text"></div>
+            <div><h4>就诊人信息</h4></div>
+            <div><div class="title">就诊人姓名</div><input type="text"></div>
+            <div><div class="title">性别</div><input type="text"></div>
+            <div><div class="title">证件类型</div><input type="text"></div>
+            <div><div class="title">证件编号</div><input type="text"></div>
+            <div><div class="title">手机号码</div><input type="text"></div>
+            <div><div class="title">就诊时间</div><input type="text"></div>
+            <div><div class="title">是否已就诊</div><input type="text"></div>
+            <div class="textarea-div"><div class="title">备注</div><textarea name="" id="remarks" cols="30" rows="6"></textarea></div>
+            <button class="btn">提交</button>
+        </form>
     </div>
 </div>
+<!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="assets/js/jquery-1.10.2.js"></script>
