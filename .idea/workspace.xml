@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25eaf36d-7b81-4ca6-ba88-ce85c206e7f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctor-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/custom-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/custom-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/custom-scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/custom-scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/chart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctor-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctor-reser-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-reser-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/empty.html" beforeDir="false" afterPath="$PROJECT_DIR$/empty.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medical-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/medical-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-reser-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/product-reser-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-reser.html" beforeDir="false" afterPath="$PROJECT_DIR$/product-reser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tab-panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/tab-panel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-reservation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-list.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,13 +17,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doctor-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+            <state relative-caret-position="382">
+              <caret line="224" column="11" lean-forward="true" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
               <folding>
                 <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="e#6002#6338#0" />
                 <element signature="e#6356#6736#0" />
                 <element signature="e#6767#7917#0" />
@@ -83,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/doctor-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="174" column="34" lean-forward="true" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+            <state relative-caret-position="234">
+              <caret line="169" column="6" lean-forward="true" selection-start-line="169" selection-start-column="6" selection-end-line="169" selection-end-column="6" />
               <folding>
                 <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -201,12 +185,12 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/assets/css/custom-styles.css" />
-        <option value="$PROJECT_DIR$/doctor-add.html" />
         <option value="$PROJECT_DIR$/doctor-reser-edit.html" />
         <option value="$PROJECT_DIR$/doctor-reservation.html" />
         <option value="$PROJECT_DIR$/doctor-edit.html" />
         <option value="$PROJECT_DIR$/assets/js/custom-scripts.js" />
         <option value="$PROJECT_DIR$/doctor-list.html" />
+        <option value="$PROJECT_DIR$/doctor-add.html" />
       </list>
     </option>
   </component>
@@ -285,7 +269,7 @@
       <workItem from="1554946846355" duration="1190000" />
       <workItem from="1559632241852" duration="5366000" />
       <workItem from="1559701405739" duration="10725000" />
-      <workItem from="1559785148434" duration="24227000" />
+      <workItem from="1559785148434" duration="25420000" />
     </task>
     <task id="LOCAL-00001" summary="4.09第二次页面完善提交">
       <created>1554792805806</created>
@@ -312,13 +296,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86961000" />
+    <option name="totallyTimeSpent" value="88154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.164465" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.164465" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -330,7 +314,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.1756374" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.21104816" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.21104816" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -527,17 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="174" column="34" lean-forward="true" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/custom-styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -605,15 +578,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doctor-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+        <state relative-caret-position="382">
+          <caret line="224" column="11" lean-forward="true" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
           <folding>
             <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="e#6002#6338#0" />
             <element signature="e#6356#6736#0" />
             <element signature="e#6767#7917#0" />
             <element signature="e#8026#9164#0" />
             <element signature="e#8562#9065#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="169" column="6" lean-forward="true" selection-start-line="169" selection-start-column="6" selection-end-line="169" selection-end-column="6" />
+          <folding>
+            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

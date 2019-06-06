@@ -11,6 +11,8 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- 样式文件-->
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -50,7 +52,7 @@
                 <li>
                     <a class="active-menu" href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
-                <li class="targger">
+                <li>
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -120,8 +122,7 @@
         </div>
     </div>
 </div>
-<script src="assets/js/jquery-1.10.2.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
     //查询全部医生信息医生信息
     $(document).ready(function () {
@@ -222,11 +223,10 @@
                 $(":checkbox[name='doctor']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
             });
         });
-        $(".targger").slideToggle;
     });
 </script>
 <!-- 导航收缩 -->
-<!--<script src="assets/js/jquery.metisMenu.js"></script>
-<script src="assets/js/custom-scripts.js"></script>-->
+<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="assets/js/custom-scripts.js"></script>
 </body>
 </html>
