@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <title>医生编辑</title>
-    <!-- Bootstrap.css-->
+    <title>医生管理</title>
+    <!-- Bootstrap.css 文件-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
-    <!-- 字体图标库-->
+    <!-- 图标样式文件-->
     <link href="assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- 样式文件-->
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
@@ -50,7 +50,7 @@
                 <li>
                     <a class="active-menu" href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
-                <li>
+                <li class="targger">
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -81,99 +81,105 @@
         </div>
     </nav>
     <div id="page-wrapper">
-        <h3>医生信息编辑</h3>
-        <form class="content submit-form" action="" method="post">
-            <div>
-                <div class="title">医生头像</div>
-                <input type="file" name="avatar"></div>
-            <div>
-                <div class="title">医生姓名</div>
-                <input type="text" name="doctor-name"></div>
-            <div><span class="title">医生职称</span><input type="text" name="job"></div>
-            <div><span class="title">性别</span><select name="sex" id="sex">
-                <option value="sex">请选择性别</option>
-                <option value="男">男</option>
-                <option value="女">女</option>
-            </select></div>
-            <div>
-                <div class="title">科室</div>
-                <select name="specs" id="specialist">
-                    <option value="specs"></option>
+        <h3>医生管理</h3>
+        <div class="doctor-content content">
+            <form action="" method="post">
+            <div class="doctor-content condition">
+                <button class="btn" onclick="window.location.href='doctor-add.html'">添加</button>
+                <button class="btn del">批量删除</button>
+                <select class="select" name="area" id="area">
+                    <option value="areas">请选择地区</option>
                 </select>
-            </div>
-            <div>
-                <div class="title">预约金</div>
-                <input type="text" name="appointment"></div>
-            <div>
-                <div class="title">第二诊疗金</div>
-                <input type="text" name="second-appointment"></div>
-            <div>
-                <div class="title">医院/诊所</div>
-                <select name="hospital" id="hospital">
-                    <option value="hospital"></option>
-                </select></div>
-            <div>
-                <div class="title">联系电话</div>
-                <input type="text" name="tel"></div>
-            <div>
-                <div class="title">传真号码</div>
-                <input type="text" name="fax"></div>
-            <div>
-                <div class="title">地区</div>
-                <select name="area" id="area">
-                    <option value="area"></option>
+                <select class="select" name="specialist" id="specialist">
+                    <option value="specs">请选择专科</option>
                 </select>
-            </div>
-            <div>
-                <div class="title">详细地址</div>
-                <input class="address" type="text" name="address"></div>
-            <div>
-                <div class="title">诊症时间/人数</div>
-                <input class="date" type="date" name="date">
-                <select class="data" name="person" id="person">
-                    <option value="person"></option>
+                <select class="select" name="sex" id="sex">
+                    <option value="sex">请选择性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
                 </select>
+                <input class="select" type="text" name="keyword" placeholder="请输入关键词">
+                <button class="btn">搜索</button>
             </div>
-            <div class="info">
-                <span>2019-03-06 9:00-10:00</span><span> 10人</span><span class="del-span">删除</span><span
-                    class="edit-span">删除</span>
-            </div>
-            <div class="textarea-div">
-                <div class="title">擅长领域</div>
-                <textarea name="specialty" id="specialty" cols="30" rows="6"></textarea></div>
-            <div class="textarea-div">
-                <div class="title">简介</div>
-                <textarea name="introduction" id="introduction" cols="30" rows="6"></textarea></div>
-            <div class="textarea-div">
-                <div class="title">备注</div>
-                <textarea name="remarks" id="remarks" cols="30" rows="6"></textarea></div>
-            <button class="btn">提交</button>
-        </form>
+            </form>
+            <table id="doctors-table">
+                <tr>
+                    <th><input type="checkbox" id="all-doctor" value="all"><label for="all-doctor"></label></th>
+                    <th>医生头像</th>
+                    <th>医生姓名</th>
+                    <th>医生职称</th>
+                    <th>专科</th>
+                    <th>预约金</th>
+                    <th>性别</th>
+                    <th>所属医院/诊所</th>
+                    <th>联系电话</th>
+                    <th>地址</th>
+                    <th>操作</th>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <script src="assets/js/jquery-1.10.2.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    //查询全部医生信息医生信息
     $(document).ready(function () {
-        var specs = [{id: 1, name: "外科"}, {id: 2, name: "内科"}, {id: 3, name: "普通科"}, {id: 4, name: "心脏科"}, {id: 5,name: "骨科"}, {id: 6, name: "眼科"}, {id: 7, name: "妇产科"}];
+        var doctors = [{
+            id: 1,
+            avatar: "avatar.png",
+            name: "陈奕迅",
+            job: "外科",
+            spec: "外科",
+            medical: "0.01",
+            sex: "女",
+            hospital: "香港综合肿瘤中心",
+            tel: "12345678",
+            address: "中环花园站道3号冠君大厦3楼及4楼全层"
+        },
+            {
+                id: 2,
+                avatar: "avatar.png",
+                name: "陈奕迅",
+                job: "外科",
+                spec: "外科",
+                medical: "0.01",
+                sex: "女",
+                hospital: "香港综合肿瘤中心",
+                tel: "12345678",
+                address: "中环花园站道3号冠君大厦3楼及4楼全层"
+            }
+        ];
         var areas = [{id: 1, name: "广州"}, {id: 2, name: "深圳"}, {id: 3, name: "厦门"}, {id: 4, name: "海南"}];
-        var persons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        var hospitals = [{id: 1, name: "中心医院"}, {id: 2, name: "第二人民医院"}, {id: 3, name: "社康医院"}, {id: 4, name: "骨科医院"}];
-        //专科信息
+        var specs = [{id: 1, name: "外科"}, {id: 2, name: "内科"}, {id: 3, name: "普通科"}, {id: 4, name: "心脏科"}, {
+            id: 5,
+            name: "骨科"
+        }, {id: 6, name: "眼科"}, {id: 7, name: "妇产科"}];
+        //医生信息
         $.ajax({
             url: "data.json",
             type: "post",
-            data: specs,
+            data: doctors,
             dataType: "json",
             success: function () {
-                for (var i = 0; i < specs.length; i++) {
-                    var spec = specs[i];
-                    var option = '<option value="' + spec.name + '">' + spec.name + '</option>';
-                    $("#specialist").append(option);
+                for (var i = 0; i < doctors.length; i++) {
+                    var doctor = doctors[i];
+                    var tr = '<tr><td><input type="checkbox" id="' + doctor.id + '" name="doctor" value="' + doctor.id + '"><label for="' + doctor.id + '"></label></td>';
+                    tr += '<td>' + doctor.avatar + '</td>';
+                    tr += '<td>' + doctor.name + '</td>';
+                    tr += '<td>' + doctor.job + '</td>';
+                    tr += '<td>' + doctor.spec + '</td>';
+                    tr += '<td>' + doctor.medical + '</td>';
+                    tr += '<td>' + doctor.sex + '</td>';
+                    tr += '<td>' + doctor.hospital + '</td>';
+                    tr += '<td>' + doctor.tel + '</td>';
+                    tr += '<td>' + doctor.address + '</td>';
+                    tr += '<td>[<a href="doctor-edit.html">编辑</a>][<a href="">删除</a>]</td></tr>';
+                    $("#doctors-table").append(tr);
                 }
             },
             error: function () {
-                alert("专科信息数据请求失败！");
+                alert("医生信息数据请求失败！");
             }
         });
         //地区信息
@@ -193,44 +199,34 @@
                 alert("地区信息数据请求失败！");
             }
         });
-        //医院诊所信息
+        //专科信息
         $.ajax({
             url: "data.json",
             type: "post",
-            data: hospitals,
+            data: specs,
             dataType: "json",
             success: function () {
-                for (var i = 0; i < hospitals.length; i++) {
-                    var hospital = hospitals[i];
-                    var option = '<option value="' + hospital.name + '">' + hospital.name + '</option>';
-                    $("#hospital").append(option);
+                for (var i = 0; i < specs.length; i++) {
+                    var spec = specs[i];
+                    var option = '<option value="' + spec.name + '">' + spec.name + '</option>';
+                    $("#specialist").append(option);
                 }
             },
             error: function () {
-                alert("医院/诊所信息数据请求失败！");
+                alert("专科信息数据请求失败！");
             }
         });
-        //预约人数
-        $.ajax({
-            url: "data.json",
-            type: "post",
-            data: persons,
-            dataType: "json",
-            success: function () {
-                for (var i = 0; i < persons.length; i++) {
-                    var person = persons[i];
-                    var option = '<option value="' + person + '">' + person + '</option>';
-                    $("#person").append(option);
-                }
-            },
-            error: function () {
-                alert("预约人数数据请求失败！");
-            }
+        // 复选框的全选和全不选
+        $(function() {
+            $("#all-doctor").click(function() {
+                $(":checkbox[name='doctor']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
+            });
         });
+        $(".targger").slideToggle;
     });
 </script>
-<!--左侧导航-->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<script src="assets/js/custom-scripts.js"></script>
+<!-- 导航收缩 -->
+<!--<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="assets/js/custom-scripts.js"></script>-->
 </body>
 </html>

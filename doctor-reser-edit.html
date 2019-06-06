@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>医生预约编辑</title>
+    <!-- Bootstrap.css-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- 字体图标文件-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- 样式文件-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="wrapper">
@@ -23,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+            <a class="navbar-brand" href="doctor-list.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
         </div>
         <img class="logo-img" src="./assets/img/logo.png" alt="">
         <ul class="nav navbar-top-links navbar-right">
@@ -49,13 +48,13 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="index.html"><i class="fa fa-dashboard"></i>医生管理</a>
+                    <a href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="ui-elements.html">医生预约管理</a>
+                            <a href="doctor-reservation.html">医生预约管理</a>
                         </li>
                         <li>
                             <a href="product-reser.html">产品预约管理</a>
@@ -80,38 +79,61 @@
             </ul>
         </div>
     </nav>
-    <div id="page-wrapper" >
+    <div id="page-wrapper">
         <h3>医生预约编辑</h3>
-        <form class="content submit-form" action="" method="get">
+        <form class="content submit-form" action="" method="post">
             <div><h4>医生信息</h4></div>
-            <div><div class="title">医生头像</div><input type="file"></div>
-            <div><div class="title">医生姓名</div><input type="text"></div>
-            <div><span class="title">所属医院诊所</span><input type="text"></div>
-            <div><span class="title">联系电话</span><input type="text"></div>
-            <div><div class="title">地址</div><input class="address" type="text"></div>
+            <!--<div><div class="title">医生头像</div><input type="file"></div>-->
+            <div>
+                <div class="title">医生姓名</div>
+                <input type="text" name="doctor-name"></div>
+            <div><span class="title">所属医院诊所</span><select name="hospital" id="hospital">
+                <option value="hospital"></option>
+            </select></div>
+            <div><span class="title">联系电话</span><input type="text" name="tel"></div>
+            <div>
+                <div class="title">地址</div>
+                <input class="address" type="text" name="address"></div>
             <div><h4>就诊人信息</h4></div>
-            <div><div class="title">就诊人姓名</div><input type="text"></div>
-            <div><div class="title">性别</div><input type="text"></div>
-            <div><div class="title">证件类型</div><input type="text"></div>
-            <div><div class="title">证件编号</div><input type="text"></div>
-            <div><div class="title">手机号码</div><input type="text"></div>
-            <div><div class="title">就诊时间</div><input type="text"></div>
-            <div><div class="title">是否已就诊</div><input type="text"></div>
-            <div class="textarea-div"><div class="title">备注</div><textarea name="" id="remarks" cols="30" rows="6"></textarea></div>
+            <div>
+                <div class="title">就诊人姓名</div>
+                <input type="text" name="username"></div>
+            <div>
+                <div class="title">性别</div>
+                <select name="sex" id="sex">
+                    <option value="sex">请选择性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select></div>
+            <div>
+                <div class="title">证件类型</div>
+                <input type="text" name=""></div>
+            <div>
+                <div class="title">证件编号</div>
+                <input type="text" name=""></div>
+            <div>
+                <div class="title">手机号码</div>
+                <input type="text" name=""></div>
+            <div>
+                <div class="title">就诊时间</div>
+                <input type="date" name="date"></div>
+            <div>
+                <div class="title">是否已就诊</div>
+                <input type="text" name=""></div>
+            <div class="textarea-div">
+                <div class="title">备注</div>
+                <textarea name="remarks" id="remarks" cols="30" rows="6"></textarea></div>
             <button class="btn">提交</button>
         </form>
     </div>
 </div>
-<!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
 <script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
 <script src="assets/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
+<!--左侧导航-->
 <script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Custom Js -->
 <script src="assets/js/custom-scripts.js"></script>
+<script type="text/javascript">
 
+</script>
 </body>
 </html>

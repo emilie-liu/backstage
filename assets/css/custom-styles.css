@@ -5,6 +5,9 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+html,body,#wrapper{
+    height: 100%;
+}
 #page-wrapper {
     padding: 15px 15px;
     background: #F3F7F7;
@@ -693,7 +696,7 @@ table {
 .content th,
 .content td {
     text-align: center;
-    width: 5%;
+    width: 4%;
     line-height: 40px;
 }
 
@@ -707,11 +710,14 @@ table {
     width: 2%;
 }
 
-.doctor-content th:last-child,
-.doctor-content td:last-child {
+.doctor-content th:nth-child(10),
+.doctor-content td:nth-child(10){
     width: 12%;
 }
-
+.doctor-content th:nth-child(8),
+.doctor-content td:nth-child(8){
+    width: 6%;
+}
 .reser-content td:nth-child(9) {
     width: 8%;
 }
@@ -807,7 +813,6 @@ input[type="checkbox"]:checked + label:before {
     height: 40px;
     border: 1px solid #ABABAB;
     border-radius: 4px;
-    margin-left: -4px;
 }
 
 .submit-form .info {
@@ -836,7 +841,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .data {
-    width: 6% !important;
+    width: 10.4% !important;
 }
 
 .address {
@@ -864,8 +869,8 @@ input[type="file"] {
     color: #fff;
     border: none;
     border-radius: 14px;
-    width: 80%;
-    line-height: 30px;
+    line-height: 20px;
+    font-size: 14px;
 }
 
 .status-confirm {
@@ -893,6 +898,9 @@ input[type="file"] {
 
 .product-content td:nth-child(9) {
     width: 6%;
+}
+.reser-content td:last-child{
+    width: 5.4%;
 }
 
 .product-content td:last-child {
