@@ -4,14 +4,14 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
-    <!-- Bootstrap Styles-->
+    <!-- Bootstrap.css-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
-    <!-- FontAwesome Styles-->
+    <!-- 字体图标样式-->
     <link href="assets/css/font-awesome.css" rel="stylesheet"/>
-    <!-- Custom Styles-->
+    <!--Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -51,7 +51,7 @@
                 <li>
                     <a href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
-                <li>
+                <li class="shrink">
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -80,53 +80,57 @@
             </ul>
         </div>
     </nav>
-    <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <h3>联系我们</h3>
         <div class="contact-content content">
-            <table>
+            <table id="contacts">
                 <tr>
-                    <th><input type="hidden" /></th>
+                    <th><input type="checkbox" id="all-contact" value="all"><label for="all-contact"></label></th>
                     <th>姓名</th>
                     <th>联系电话</th>
                     <th>留言内容</th>
                     <th>留言时间</th>
                     <th>是否已处理</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" id="doctor" name="doctor"><label for="doctor"></label></td>
-                    <td>某某某</td>
-                    <td>15745698751</td>
-                    <td><span>某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中一個人話佢有乙型肝炎. 我地會唔會 已受感染? 謝謝</span></td>
-                    <td>2019-01-29</td>
-                    <td>否</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" id="doctor1" name="doctor"><label for="doctor1"></label></td>
-                    <td>某某某</td>
-                    <td>15745698751</td>
-                    <td><span>某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中一個人話佢有乙型肝炎. 我地會唔會 已受感染? 謝謝</span></td>
-                    <td>2019-01-29</td>
-                    <td>否</td>
+                    <th>操作</th>
                 </tr>
             </table>
-            <button class="btn edit" onclick="window.location.href='contact-edit.html'">编辑</button>
-            <button class="btn del">删除</button>
         </div>
     </div>
-    <!-- /. PAGE WRAPPER  -->
 </div>
-<!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Custom Js -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var contacts = [{id:1,name:"某某某",tel:"12345678",content:"某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中一個人話佢",dateTime:"2019-01-29",status:"是"},
+            {id:2,name:"某某某",tel:"15745698751",content:"某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷",dateTime:"2019-01-29",status:"否"},
+            {id:3,name:"某某某",tel:"15725755689",content:"某某某醫生, 一齊食飯會唔? 我同朋友食飯一向唔用公筷, 但最近其中一個人話佢",dateTime:"2019-01-29",status:"是"}];
+        $.ajax({
+            url: "data.json",
+            type:"get",
+            data: contacts,
+            dataType: "json",
+            success: function () {
+                for(var i = 0;i<contacts.length;i++){
+                    var contact = contacts[i];
+                    var tr = '<tr><td><input type="checkbox" id="' + contact.id + '" name="contact" value="' + contact.id + '"><label for="' + contact.id + '"></label></td>';
+                    tr += '<td>' + contact.name + '</td>';
+                    tr += '<td>' + contact.tel + '</td>';
+                    tr += '<td>' + contact.content + '</td>';
+                    tr += '<td>' + contact.dateTime + '</td>';
+                    tr += '<td>' + contact.status + '</td>';
+                    tr += '<td>[<a href="contact-edit.html">编辑</a>][<a href="">删除</a>]</td></tr>';
+                    $("#contacts").append(tr);
+                }
+            },
+            error: function () {
+                alert("联系我们数据请求失败");
+            }
+        });
+        $("#all-contact").click(function () {
+            $(":checkbox[name='contact']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
+        });
+        
+    });
+</script>
 <script src="assets/js/custom-scripts.js"></script>
-
-
 </body>
 </html>

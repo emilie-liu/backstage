@@ -5,13 +5,13 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-html,body,#wrapper{
+/*html,body,#wrapper{
     height: 100%;
-}
+}*/
 #page-wrapper {
     padding: 15px 15px;
     background: #F3F7F7;
-    height: 100%;
+    min-height: 970px;
 }
 
 .text-center {
@@ -520,6 +520,10 @@ footer p {
 }
 
 
+.nav-second-level{
+    display: none;
+}
+
 .nav-second-level li,
 .nav-third-level li {
     border-bottom: none !important;
@@ -696,7 +700,7 @@ table {
 .content th,
 .content td {
     text-align: center;
-    width: 4%;
+    width: 5%;
     line-height: 40px;
 }
 
@@ -705,10 +709,10 @@ table {
     width: 1%;
 }
 
-.content th:nth-child(2),
+/*.content th:nth-child(2),
 .content td:nth-child(2) {
     width: 2%;
-}
+}*/
 
 .doctor-content th:nth-child(10),
 .doctor-content td:nth-child(10){
@@ -893,12 +897,9 @@ input[type="file"] {
 
 .product-content td:nth-child(2),
 .product-content td:nth-child(3) {
-    width: 11.6%;
+    width: 10%;
 }
 
-.product-content td:nth-child(9) {
-    width: 6%;
-}
 .reser-content td:last-child{
     width: 5.4%;
 }

@@ -11,6 +11,9 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet"/>
     <!-- 样式文件-->
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -50,7 +53,7 @@
                 <li>
                     <a class="active-menu" href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
-                <li>
+                <li class="shrink">
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -151,8 +154,7 @@
         </form>
     </div>
 </div>
-<script src="assets/js/jquery-1.10.2.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         var specs = [{id: 1, name: "外科"}, {id: 2, name: "内科"}, {id: 3, name: "普通科"}, {id: 4, name: "心脏科"}, {id: 5,name: "骨科"}, {id: 6, name: "眼科"}, {id: 7, name: "妇产科"}];
@@ -230,7 +232,6 @@
     });
 </script>
 <!--左侧导航-->
-<script src="assets/js/jquery.metisMenu.js"></script>
 <script src="assets/js/custom-scripts.js"></script>
 </body>
 </html>

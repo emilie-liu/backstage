@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <title>医生预约编辑</title>
+    <title>产品预约编辑</title>
     <!-- Bootstrap.css-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- 字体图标文件-->
@@ -50,7 +50,7 @@
                 <li>
                     <a href="doctor-list.html"><i class="fa fa-dashboard"></i>医生管理</a>
                 </li>
-                <li>
+                <li class="shrink">
                     <a href="#"><i class="fa fa-sitemap"></i> 预约管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -80,7 +80,7 @@
         </div>
     </nav>
     <div id="page-wrapper">
-        <h3>医生预约编辑</h3>
+        <h3>产品预约编辑</h3>
         <form class="content submit-form" action="" method="post">
             <div><h4>医生信息</h4></div>
             <!--<div><div class="title">医生头像</div><input type="file"></div>-->
@@ -107,19 +107,23 @@
                 </select></div>
             <div>
                 <div class="title">证件类型</div>
-                <input type="text" name=""></div>
+                <input type="text" name="type"></div>
             <div>
                 <div class="title">证件编号</div>
-                <input type="text" name=""></div>
+                <input type="text" name="numbering"></div>
             <div>
                 <div class="title">手机号码</div>
-                <input type="text" name=""></div>
+                <input type="text" name="user-tel"></div>
             <div>
                 <div class="title">就诊时间</div>
                 <input type="date" name="date"></div>
             <div>
                 <div class="title">是否已就诊</div>
-                <input type="text" name=""></div>
+                <select name="visiting" id="visiting">
+                    <option value="visiting"></option>
+                    <option value="是">是</option>
+                    <option value="否">否</option>
+                </select></div>
             <div class="textarea-div">
                 <div class="title">备注</div>
                 <textarea name="remarks" id="remarks" cols="30" rows="6"></textarea></div>
@@ -130,10 +134,28 @@
 <script src="assets/js/jquery-1.10.2.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <!--左侧导航-->
-<script src="assets/js/jquery.metisMenu.js"></script>
 <script src="assets/js/custom-scripts.js"></script>
 <script type="text/javascript">
-
+    $(document).ready(function () {
+        var hospitals = [{id: 1, name: "中心医院"}, {id: 2, name: "第二人民医院"}, {id: 3, name: "社康医院"}, {id: 4, name: "骨科医院"}];
+        //医院诊所信息
+        $.ajax({
+            url: "data.json",
+            type: "post",
+            data: hospitals,
+            dataType: "json",
+            success: function () {
+                for (var i = 0; i < hospitals.length; i++) {
+                    var hospital = hospitals[i];
+                    var option = '<option value="' + hospital.name + '">' + hospital.name + '</option>';
+                    $("#hospital").append(option);
+                }
+            },
+            error: function () {
+                alert("医院/诊所信息数据请求失败！");
+            }
+        });
+    });
 </script>
 </body>
 </html>
