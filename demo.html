@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态创建标签</title>
+    <style type="text/css">
+        .tabs-container {
+            border: 1px solid red;
+            width: 700px;
+            padding: 10px;
+        }
+
+        .tabs-label {
+            float: left;
+            color: #1f1f1f;
+            font-family: monospace;
+            font-size: 14px;
+            height: 26px;
+            line-height: 26px;
+            margin-right: 5px;
+        }
+
+        .tabs {
+            display: table-cell;
+            width: 10000px;
+        }
+
+        .tab {
+            display: inline-block;
+            border: 1px solid #c5c5c5;
+            border-radius: 2px;
+            height: 36px;
+            margin-bottom: 14px;
+            margin-right: 12px;
+            padding: 0 10px;
+        }
+
+        .tab .tab-show {
+            margin-right: 5px;
+        }
+
+        .tab .tab-text {
+            border: none;
+            display: none;
+            outline: none;
+        }
+
+        .tab .tab-edit {
+            cursor: pointer;
+            color: gray;
+        }
+
+        /*这是利用after后面加content*/
+        /*.tab .tab-edit::after{
+            content: "\270f";
+        }*/
+        /*这是设置一个背景图片*/
+        .tab .tab-edit {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background: url(assets/img/edit.png) no-repeat left 5px;
+        }
+
+        .tab .tab-delete {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background: url(assets/img/delete.png) no-repeat left 4px;
+        }
+
+        .tab.active .tab-show {
+            display: none;
+        }
+
+        .tab.active .tab-text {
+            display: inline-block;
+            font-size: 16px;
+            width: 130px;
+        }
+
+        /*这是利用after后面加content*/
+        /*.tab.active .tab-edit::after{
+            content:"\2713";
+        }*/
+        /*这是设置一个背景图片*/
+        .tab.active .tab-edit {
+            color: blue;
+            background: url(assets/img/ok.png) no-repeat left 4px;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        .tab.active .tab-delete {
+            color: #666;
+            display: none;
+        }
+
+        .tab.active .tab-delete:hover {
+            color: #999;
+        }
+
+        .tab.active .tab-delete:active {
+            color: #333;
+        }
+
+        .tabs .tab-add {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            display: inline-block;
+            background: url(assets/img/add.png) no-repeat center;
+        }
+
+        #btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="tabs-container">
+    <div class="tabs-label">标签管理:</div>
+    <div class="tabs" id="tabs">
+    </div>
+</div>
+<button id="btn">获取数据</button>
+
+<script src="assets/js/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    var datas = [
+        {
+            text: "aaa"
+        },
+        {
+            text: "bbb"
+        },
+        {
+            text: "ccc"
+        },
+        {
+            text: "ddd"
+        },
+        {
+            text: "eee"
+        },
+        {
+            text: "fff"
+        },
+        {
+            text: "ggg"
+        }
+    ];
+
+    $("#tabs").html(
+        datas.map(function (data) {
+            return addTab(data);
+        })
+    ).append(
+        $("<a/>", {
+            "class": "tab-add",
+            "text": "",
+            "click": function () {
+                $(this).before(
+                    addTab({text: ""})
+                )
+            }
+        })
+    );
+
+    //创建标签
+    function addTab(data) {
+        var tab = $("<div/>", {
+            "class": "tab"
+        }).append(
+            $("<span/>", {
+                "class": "tab-show",
+                "html": data.text
+            }),
+            $("<input/>", {
+                "class": "tab-text",
+                "value": data.text,
+                "maxlength": 7
+            }),
+            $("<a/>", {
+                "class": "tab-edit",
+                "click": function () {
+                    tab.toggleClass("active");
+                    if (!tab.hasClass("active")) {
+                        tab.find(".tab-show").html(tab.find(".tab-text").val());
+                    }
+                }
+            }),
+            $("<a/>", {
+                "class": "tab-delete",
+                "text": "",
+                "click": function () {
+                    tab.remove();
+                }
+            })
+        );
+        return tab;
+    }
+
+    //获取数据
+    $("#btn").on("click", function () {
+        var texts = [];
+        $(".tab", "#tabs").removeClass("active");
+        /*$(".tab-text","#tabs").each(function(){
+            texts.push(this.value);
+        });*/
+        $(".tab-text", "#tabs").get().filter(function (item) {
+            return item.value; //起到过滤数组的作用
+        }).forEach(function (item) {
+            console.log(item);
+            texts.push(item.value);
+        });
+        texts = texts.join(",");
+        alert(texts);
+    });
+
+</script>
+</body>
+</html>

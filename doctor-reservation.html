@@ -74,7 +74,7 @@
                     <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
                 </li>
                 <li>
-                    <a href="empty.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
+                    <a href="medical.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
                 </li>
             </ul>
         </div>
@@ -136,7 +136,7 @@
                     tr += '<td>' + list.sex + '</td>';
                     tr += '<td>' + list.remarks + '</td>';
                     tr += '<td>' + list.visiting_date + '</td>';
-                    tr += '<td><button class="status status-confirm">待确认</button>[<a href="doctor-reser-edit.html">编辑</a>][<a href="">删除</a>]</td></tr>';
+                    tr += '<td><span class="status status-confirm">待确认</span>[<a href="doctor-reser-edit.html">编辑</a>][<a class="delete" href="#">删除</a>]</td></tr>';
                     $("#reservation-table").append(tr);
                 }
             },
@@ -149,6 +149,21 @@
             $("#all-reservation").click(function() {
                 $(":checkbox[name='list']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
             });
+        });
+
+        //记录删除(js加载)
+        $(document).on("click",".delete",function () {
+            var delete_confirm =  confirm("是否删除该记录？");
+            if(delete_confirm == true){
+                var parent =  $(this).parent().parent();
+                parent.remove();
+            }
+        });
+
+        //点击改变状态
+        $(document).on("click",".status-confirm",function () {
+            event.stopPropagation();
+            $(this).html("已确认");
         });
     });
 </script>

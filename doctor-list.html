@@ -78,7 +78,7 @@
                 </li>
 
                 <li>
-                    <a href="empty.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
+                    <a href="medical.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
                 </li>
             </ul>
         </div>
@@ -87,23 +87,23 @@
         <h3>医生管理</h3>
         <div class="doctor-content content">
             <form action="" method="post">
-            <div class="doctor-content condition">
-                <a class="btn" href="doctor-add.html">添加</a>
-                <button class="btn del">批量删除</button>
-                <select class="select" name="area" id="area">
-                    <option value="areas">请选择地区</option>
-                </select>
-                <select class="select" name="specialist" id="specialist">
-                    <option value="specs">请选择专科</option>
-                </select>
-                <select class="select" name="sex" id="sex">
-                    <option value="sex">请选择性别</option>
-                    <option value="男">男</option>
-                    <option value="女">女</option>
-                </select>
-                <input class="select" type="text" name="keyword" placeholder="请输入关键词">
-                <button class="btn">搜索</button>
-            </div>
+                <div class="doctor-content condition">
+                    <a class="btn" href="doctor-add.html">添加</a>
+                    <button class="btn del">批量删除</button>
+                    <select class="select" name="area" id="area">
+                        <option value="areas">请选择地区</option>
+                    </select>
+                    <select class="select" name="specialist" id="specialist">
+                        <option value="specs">请选择专科</option>
+                    </select>
+                    <select class="select" name="sex" id="sex">
+                        <option value="sex">请选择性别</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                    <input class="select" type="text" name="keyword" placeholder="请输入关键词">
+                    <button class="btn">搜索</button>
+                </div>
             </form>
             <table id="doctors-table">
                 <tr>
@@ -142,9 +142,9 @@
                 id: 2,
                 avatar: "avatar.png",
                 name: "陈奕迅",
-                job: "外科",
-                spec: "外科",
-                medical: "0.01",
+                job: "副教授",
+                spec: "内科",
+                medical: "0.02",
                 sex: "女",
                 hospital: "香港综合肿瘤中心",
                 tel: "12345678",
@@ -175,7 +175,7 @@
                     tr += '<td>' + doctor.hospital + '</td>';
                     tr += '<td>' + doctor.tel + '</td>';
                     tr += '<td>' + doctor.address + '</td>';
-                    tr += '<td>[<a href="doctor-edit.html">编辑</a>][<a href="">删除</a>]</td></tr>';
+                    tr += '<td>[<a href="doctor-edit.html">编辑</a>][<a class="delete" href="#">删除</a>]</td></tr>';
                     $("#doctors-table").append(tr);
                 }
             },
@@ -183,6 +183,7 @@
                 alert("医生信息数据请求失败！");
             }
         });
+
         //地区信息
         $.ajax({
             url: "data.json",
@@ -218,10 +219,19 @@
             }
         });
         // 复选框的全选和全不选
-        $(function() {
-            $("#all-doctor").click(function() {
+        $(function () {
+            $("#all-doctor").click(function () {
                 $(":checkbox[name='doctor']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
             });
+        });
+
+        //记录删除(js加载)
+        $(document).on("click",".delete",function () {
+            var delete_confirm =  confirm("是否删除该记录？");
+            if(delete_confirm == true){
+                var parent =  $(this).parent().parent();
+                parent.remove();
+            }
         });
 
     });

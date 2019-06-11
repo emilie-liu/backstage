@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
-    <!-- Bootstrap Styles-->
+    <title>智能医导</title>
+    <!-- Bootstrap.css-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
-    <!-- FontAwesome Styles-->
+    <!-- 字体图标库样式-->
     <link href="assets/css/font-awesome.css" rel="stylesheet"/>
-    <!-- Custom Styles-->
+    <!--Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet"/>
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -75,7 +75,7 @@
                     <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
                 </li>
                 <li>
-                    <a class="active-menu" href="empty.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
+                    <a class="active-menu" href="medical.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
                 </li>
             </ul>
         </div>
@@ -84,31 +84,68 @@
     <div id="page-wrapper">
         <h3>智能医导</h3>
         <div class="medical-content content">
-            <table>
+            <table id="medical">
                 <tr>
-                    <th><input type="hidden" /></th>
+                    <th><input type="checkbox" id="all-medical" name="all-medical"/><label for="all-medical"></label></th>
                     <th>用户提问</th>
                     <th>回复</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" id="doctor" name="doctor"><label for="doctor"></label></td>
-                    <td>某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中一個人話佢有乙型肝炎. 我地會唔會已受感染? 謝謝</td>
-                    <td>abcgigi 你好, 眼眉跳成因不明，有可能是因睡眠不足、精神緊張、身體疲勞而引起。 如你只是這幾天眼眉偶然跳動，而不是有甚麼毛病，只要多作休息，徵狀應會在數天至一星期內消失。你也可使用......</td>
+                    <th>操作</th>
                 </tr>
             </table>
-            <button class="btn edit" onclick="window.location.href='medical-edit.html'">编辑</button>
-            <button class="btn del">删除</button>
         </div>
     </div>
 </div>
-<!-- JS Scripts-->
-<!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Custom Js -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var medicals = [{
+            id: 1,
+            question: "某某某醫生, 一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中",
+            answer: "abcgigi 你好, 眼眉跳成因不明，有可能是因睡眠不足、精神緊張、身體疲勞而引起。 如你只是這幾天眼眉偶然跳動，而不是有甚麼毛病"
+        },
+            {
+                id: 2,
+                question: " fasdf一齊食飯會唔會傳染乙肝? 我同朋友食飯一向唔用公筷, 但最近其中",
+                answer: "你好, 眼眉跳成因不明，有可能是因睡眠不足、精神緊張、身體疲勞而引起。 如你只是這幾天眼眉偶然跳動，而不是有甚麼毛病"
+            }];
+        //获取医导数据显示在页面
+        $.ajax({
+            url: "data.json",
+            data: medicals,
+            type: "post",
+            dataType: "json",
+            success: function () {
+                for (var i = 0; i < medicals.length; i++) {
+                    var medical = medicals[i];
+                    var tr = '<tr><td><input type="checkbox" name="medical" id="' + medical.id + '" value="' + medical.id + '" /><label for="' + medical.id + '"></label></td>';
+                    tr += '<td>' + medical.question + '</td>';
+                    tr += '<td>' + medical.answer + '</td>';
+                    tr += '<td>[<a href="medical-edit.html">编辑</a>][<a class="delete" href="#">删除</a>]</td></tr>';
+                    $("#medical").append(tr);
+                }
+            },
+            error: function () {
+                alert("医导数据请求失败!");
+            }
+        });
+        //复选框的全选和全不选
+        $(function () {
+            $("#all-medical").click(function () {
+                $(":checkbox[name='medical']").prop("checked",this.checked);
+            });
+        });
+
+
+        //记录删除(js加载)
+        $(document).on("click",".delete",function () {
+            var delete_confirm =  confirm("是否删除该记录？");
+            if(delete_confirm == true){
+                var parent =  $(this).parent().parent();
+                parent.remove();
+            }
+        });
+
+    });
+</script>
 <script src="assets/js/custom-scripts.js"></script>
 </body>
 </html>

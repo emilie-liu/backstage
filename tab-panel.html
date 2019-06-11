@@ -75,7 +75,7 @@
                     <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
                 </li>
                 <li>
-                    <a href="empty.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
+                    <a href="medical.html"><i class="fa fa-fw fa-file"></i>智能医导</a>
                 </li>
             </ul>
         </div>
@@ -117,7 +117,7 @@
                     tr += '<td>' + contact.content + '</td>';
                     tr += '<td>' + contact.dateTime + '</td>';
                     tr += '<td>' + contact.status + '</td>';
-                    tr += '<td>[<a href="contact-edit.html">编辑</a>][<a href="">删除</a>]</td></tr>';
+                    tr += '<td>[<a href="contact-edit.html">编辑</a>][<a class="delete" href="#">删除</a>]</td></tr>';
                     $("#contacts").append(tr);
                 }
             },
@@ -125,8 +125,19 @@
                 alert("联系我们数据请求失败");
             }
         });
+
+        //复选框全选和全不选
         $("#all-contact").click(function () {
             $(":checkbox[name='contact']").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
+        });
+
+        //记录删除(js加载)
+        $(document).on("click",".delete",function () {
+            var delete_confirm =  confirm("是否删除该记录？");
+            if(delete_confirm == true){
+                var parent =  $(this).parent().parent();
+                parent.remove();
+            }
         });
         
     });
