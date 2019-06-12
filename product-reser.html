@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>产品预约管理</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
     <!-- bootstrap.css-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- 字体图标样式-->
@@ -84,11 +85,8 @@
         <div class="product-content content">
             <form action="" method="post">
                 <div class="condition">
-                    <select class="select" name="area" id="area">
-                        <option value="">请选择产品名称</option>
-                        <option value="">体检</option>
-                        <option value="">医美</option>
-                        <option value="">DNA</option>
+                    <select class="select" name="product" id="product">
+                        <option value="product">请选择产品名称</option>
                     </select>
                     <input class="select" type="text" name="username" id="username" placeholder="请选择就诊人">
                     <input class="select" type="date" name="date" placeholder="请选择就诊时间">
@@ -111,7 +109,6 @@
             </table>
         </div>
     </div>
-    s
 </div>
 <script src="assets/js/jquery-1.10.2.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -137,6 +134,8 @@
                 price: 123.00,
                 dateTime: "2019-01-29 9:00～12:00"
             }];
+        var products = [{id:1,typeName:"医美"},{id:2,typeName:"DNA"},{id:3,typeName:"体检"},{id:4,typeName:"五合一混合疫苗"},{id:5,typeName:"凯柏硕士计划儿童疫苗A套餐"}];
+       //产品预约数据填充
         $.ajax({
             url: "data.json",
             type: "post",
@@ -162,6 +161,26 @@
             }
         });
 
+        //产品类型
+        $.ajax({
+            url:"data.json",
+            type:"post",
+            data:products,
+            dataType:"json",
+            success:function () {
+                for(var i = 0;i<products.length;i++){
+                    var product = products[i];
+                    var option = '<option value="'+product.typeName+'">'+product.typeName+'</option>';
+                    $("#product").append(option);
+                }
+            },
+            error:function () {
+                alert("数据请求失败！");
+            },successCallback() {
+            }
+
+        });
+        
         //复选框的全选和全不选
         $(function () {
             $("#all-product").click(function () {

@@ -90,6 +90,7 @@ p {
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #18A88B;
     border-color: #18A88B;
+    color: #fff;
 }
 
 .breadcrumb {

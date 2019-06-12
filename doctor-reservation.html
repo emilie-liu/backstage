@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>医生预约管理</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
     <!-- Bootstrap.css-->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- 字体图标文件-->
@@ -162,7 +163,7 @@
 
         //点击改变状态
         $(document).on("click",".status-confirm",function () {
-            event.stopPropagation();
+            // event.stopPropagation();//阻止冒泡
             $(this).html("已确认");
         });
     });
